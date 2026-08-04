@@ -1,6 +1,6 @@
 # Reykjawwwik — Web Agency SaaS
 
-**Live:** [reykjawwwik.is](https://reykjawwwik.is) · **Built by** [Kamil Jan](https://kamiljan.com)
+**Live:** [reykjawwwik.is](https://reykjawwwik.is)
 
 A full SaaS platform powering a web/design agency end to end.
 
