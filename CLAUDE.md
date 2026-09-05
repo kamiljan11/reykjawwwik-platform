@@ -17,8 +17,8 @@
 10. Nie commituj z `--no-verify`. Czerwone CI to nie sugestia, to sciana.
 
 ## Kontekst projektu
-<!-- UZUPELNIJ per repo: stack, komendy, pliki wzorcowe -->
-- Stack:
-- Komendy: `npm run dev` / `npm run build` / `npm run lint` / `npm test`
-- Plik wzorcowy komponentu:
-- Plik wzorcowy API/serwisu:
+- Stack: brak — ten repo to wylacznie dokumentacja (Markdown + workflowy GitHub Actions), zero `package.json`, zero `src/`. Kod platformy (`reykjawwwik.is`) zyje w osobnym, prywatnym repo `spirit-way-bloom` (patrz README -> Source).
+- Komendy: nie dotyczy (nic do zbudowania). Jedyny "test" to `curl -I` na 4 domeny z `docs/RUNBOOK.md`.
+- Plik wzorcowy komponentu: nie dotyczy.
+- Plik wzorcowy API/serwisu: nie dotyczy. Zmiana logiki/UI platformy -> `spirit-way-bloom`, nie tutaj.
+- Uwaga: ten repo NIE ma osobistego podpisu (imienia) w plikach publicznych — wlasciciel to "MAS Group" (patrz `docs/RUNBOOK.md` + `docs/adr/0001-...md`). Nie dopisuj imienia bez swiadomej decyzji Kamila.
