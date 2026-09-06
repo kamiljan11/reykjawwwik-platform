@@ -1,35 +1,34 @@
 # RUNBOOK — operacje i awarie
 
-<!-- Uzupelnij pola [..] przy wdrozeniu projektu. Ten plik czyta czlowiek o 3 w nocy — zero prozy, same komendy. -->
+Ten repo nie hostuje niczego — jest dokumentacją. "Awaria" tutaj oznacza awarię PLATFORMY
+(`reykjawwwik.is` i client buildy), nie tego repo. To repo samo w sobie nie może "spaść".
 
 ## Podstawy
-- Produkcja: [URL]
-- Hosting: [gdzie stoi + link do panelu]
-- Repo: github.com/mountainallservice/[repo]
-- Sekrety: Infisical "MAS Group" (localhost:8222) — NIE w repo
+- Produkcja: https://reykjawwwik.is
+- Client buildy: https://cars.reykjawwwik.is · https://tours.reykjawwwik.is · https://beauty.reykjawwwik.is
+- Kod aplikacji: osobne, prywatne repo [`spirit-way-bloom`](https://github.com/kamiljan11/spirit-way-bloom) (patrz README → Source)
+- Ten repo: github.com/kamiljan11/reykjawwwik-platform (tylko dokumentacja)
+- Sekrety: nie dotyczy tego repo (brak kodu, brak env)
 
 ## Deploy
-- Standard: merge do main -> [auto-deploy przez ... / komenda]
-- Reczny: `npm run build` -> [gdzie wrzucic dist]
+Nie dotyczy tego repo. Deploy platformy opisany (jeśli w ogóle) w `spirit-way-bloom`.
 
-## Rollback (cel: <5 min)
+## Healthcheck
 ```bash
-git revert <sha-zlego-commita> && git push   # -> redeploy automatyczny
-# albo: przywroc poprzedni release/tag w panelu hostingu
+curl -I https://reykjawwwik.is
+curl -I https://cars.reykjawwwik.is
+curl -I https://tours.reykjawwwik.is
+curl -I https://beauty.reykjawwwik.is
 ```
-
-## Monitoring
-- Bledy runtime: Sentry [link do projektu] — alerty ida na mountainallservice@gmail.com
-- Healthcheck: [URL/status] — sprawdz najpierw to
-- CI: zakladka Actions w repo (Quality Gate musi byc zielony)
+200 na wszystkich = platforma i client buildy wstają. Jeśli któryś nie odpowiada: problem jest
+w `spirit-way-bloom` / hostingu, nie tutaj.
 
 ## Typowe awarie
 | Objaw | Pierwszy krok |
 |---|---|
-| Strona nie wstaje po deploy | rollback (wyzej), potem debug na branchu |
-| Blad 500 na akcji X | Sentry -> stack trace -> `systematic-debugging` |
-| Wygasly sekret/API key | Infisical -> zrotuj -> redeploy |
-| Domena/DNS | panel ISNIC / rejestratora |
+| `reykjawwwik.is` lub client build nie odpowiada | Sprawdz hosting/DNS platformy — poza tym repo. Zacznij od `spirit-way-bloom`. |
+| README tego repo mówi co innego niż strona | Zaufaj stronie (zweryfikuj `curl`/przeglądarką), popraw README w PR |
+| Ktoś pyta o kod/cennik/CRM | Nie tutaj — `spirit-way-bloom` jest prywatne, potwierdź czy pytający ma mieć dostęp |
 
 ## Kontakty
 - Wlasciciel: MAS Group, mountainallservice@gmail.com
